@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Mon p'tit calculateur</title>
+        <style type="text/css">
+            body {
+                margin:0;
+            }
+            header{
+                display: flex;
+                justify-content: center;
+                background-color: #4CAF50;
+                }
+            .container{
+                padding-top: 50px;
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+            }
+            label {
+                font-weight: bold;
+            }
+            span{
+                font-style: italic;
+            }
+            label, span{            
+                display: block;
+                width: 250px;
+                margin-left: 20px;
+            }
+            input{
+                display: block;
+            
+            }
+
+            form {
+                padding:10px 10px 10px 10px;
+                box-shadow:10px 5px 5px grey;
+                border: 1px solid  black;
+
+            }
+            form > div{
+                display: flex; 
+                flex-direction: row;
+            }
+
+            .button {
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            .pied_de_section{
+                display:flex;
+                align-items:center;
+            }
+            @media (max-width: 600px) {
+                form > div{
+                display: flex; 
+                flex-direction: column;
+                }
+
+                label, span{
+                display: block;
+                width: auto;
+                margin-left: 0px;
+                margin-bottom:10px
+            }
+            input{
+                display: block;
+            
+            }
+                
+            }
+
+
+        </style>
+    </head>
+    <body  >
+        <header>
+            <h1>Mon p'tit calculateur</h1>
+        </header>
+        <section class="container" >
+            
+            <form id="calculateur_remise">
+                <h2>Calculateur de Remise</h2>
+                <div >
+                    <label class="" for="prix_ttc_avant_remise">Prix de vente TTC avant remise</label>
+                    <input type="text" id="prix_ttc_avant_remise" name="prix_ttc_avant_remise">
+                    <span >(Saisir le prix de vente avant remise)</span>
+                </div>
+            
+                <div >
+                    <label for="pourcentage_remise">% remise</label>
+                    <input type="text" id="pourcentage_remise" name="pourcentage_remise" >
+                    <span  >(Saisir le pourcentage de remise)</span>
+                </div>
+                 <hr />
+                 <div class="pied_de_section" >   
+                        <input type="button" id="calculer_remise" class="button" value="Calculer">
+                        <span id="prixTTCApresRemise"> Cliquer sur Calculer pour obtenir le prix TTC après remise </span>
+                 </div>
+            </form>
+        </section>
+    </body>
+    <script>
+
+        const button = document.querySelector('#calculer_remise');
+
+        button.addEventListener('click', event => {
+            const prixTTCAvantRemise = document.getElementById("prix_ttc_avant_remise").value;
+            const pourcentageRemise = document.getElementById("pourcentage_remise").value;
+            prixTTCApresRemise = Calculateur.prixApresRemise(prixTTCAvantRemise,pourcentageRemise)
+            document.getElementById("prixTTCApresRemise").textContent = "Le prix TTC après remise est de : " + prixTTCApresRemise + "€"
+        });
+
+        class Calculateur {
+            constructor() {
+                console.log("calculateur")
+            }
+            static prixApresRemise(prixTTCAvantRemise, pourcentageRemise){
+          
+                const prixTTCAvantRemiseSanitized = parseFloat(prixTTCAvantRemise);
+                const pourcentageRemiseSanitized = parseFloat(pourcentageRemise);
+               
+                if  (isNaN(prixTTCAvantRemiseSanitized)){
+                    return 0;
+                }
+
+                if ((pourcentageRemiseSanitized===0) || isNaN(pourcentageRemiseSanitized)){
+                    return prixTTCAvantRemiseSanitized;
+                }
+
+                let resultat = prixTTCAvantRemiseSanitized*(1-(pourcentageRemiseSanitized/100))
+                               
+                return  resultat;
+        
+            }
+
+        }
+
+        // ttc:200 remise:60 resultat 80 
+        console.log("test calcul remise:" + (Calculateur.prixApresRemise(200,60)===80))
+        console.log("test calcul remise sur texte €TTC :" + (Calculateur.prixApresRemise("texte",60)===0))
+        console.log("test calcul remise 0 sur 200€TTC:" + (Calculateur.prixApresRemise(200,0)===200))
+        console.log("test calcul remise texte sur 200€TTC:" + (Calculateur.prixApresRemise(200,"texte")===200))
+
+    </script>
+</html>
