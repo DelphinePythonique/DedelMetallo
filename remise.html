@@ -4,94 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Mon p'tit calculateur</title>
-        <style type="text/css">
-            body {
-                margin:0;
-            }
-            header{
-                display: flex;
-                justify-content: center;
-                background-color: #4CAF50;
-                }
-            .container{
-                padding-top: 50px;
-                background-color: white;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-
-            }
-            label {
-                font-weight: bold;
-            }
-            span{
-                font-style: italic;
-            }
-            label, span{            
-                display: block;
-                width: 250px;
-                margin-left: 20px;
-            }
-            input{
-                display: block;
-            
-            }
-
-            form {
-                padding:10px 10px 10px 10px;
-                box-shadow:10px 5px 5px grey;
-                border: 1px solid  black;
-
-            }
-            form > div{
-                display: flex; 
-                flex-direction: row;
-            }
-
-            .button {
-                background-color: #4CAF50;
-                border: none;
-                color: white;
-                padding: 15px 32px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                cursor: pointer;
-                font-size: 16px;
-            }
-
-            .pied_de_section{
-                display:flex;
-                align-items:center;
-            }
-            @media (max-width: 600px) {
-                form > div{
-                display: flex; 
-                flex-direction: column;
-                }
-
-                label, span{
-                display: block;
-                width: auto;
-                margin-left: 0px;
-                margin-bottom:10px
-            }
-            input{
-                display: block;
-            
-            }
-                
-            }
-
-
-        </style>
+        <link href="assets/index.css" rel="stylesheet">
     </head>
     <body  >
         <header>
             <h1>Mon p'tit calculateur</h1>
         </header>
         <section class="container" >
-            
+             <a class="button" href="index.html">Sommaire</a>
             <form id="calculateur_remise">
                 <h2>Calculateur de Remise</h2>
                 <div >
@@ -111,6 +31,70 @@
                         <span id="prixTTCApresRemise"> Cliquer sur Calculer pour obtenir le prix TTC après remise </span>
                  </div>
             </form>
+
+            <article>
+                La remise a pour formule :
+                montant TTC avant remise - [ ( montant TTC avant remise X %remise ) /100 ]
+                <br>
+
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <!-- Arrowhead marker definition -->
+                    <marker
+                      id="arrow"
+                      viewBox="0 0 10 10"
+                      refX="5"
+                      refY="5"
+                      markerWidth="6"
+                      markerHeight="6"
+                      orient="auto-start-reverse">
+                      <path d="M 0 0 L 10 5 L 0 10 z" />
+                    </marker>
+
+                    <!-- Dot marker definition -->
+                    <marker
+                      id="dot"
+                      viewBox="0 0 10 10"
+                      refX="5"
+                      refY="5"
+                      markerWidth="5"
+                      markerHeight="5">
+                      <circle cx="5" cy="5" r="5" fill="red" />
+                    </marker>
+                  </defs>
+
+                  <!-- Coordinate axes with an arrowhead in both directions -->
+                  <polyline
+                    points="10,10 10,90 90,90"
+                    fill="none"
+                    stroke="black"
+                    marker-start="url(#arrow)"
+                    marker-end="url(#arrow)" />
+
+                  <!-- Data line with polymarkers -->
+                  <polyline
+                    points="10 30,80 50"
+                    fill="none"
+                    stroke="grey"
+                    marker-start="url(#dot)"
+                    marker-mid="url(#dot)"
+                    marker-end="url(#dot)" />
+
+                    <text x="20" y="95"
+                            font-family="Verdana"
+                            font-size="5">
+                         Taux de remise
+                    </text>
+
+                      <text x="0" y="80"
+                            font-family="Verdana"
+                            font-size="5"
+                            transform="rotate(-90 0 , 75)"
+                           >
+                         Prix TTC après remise
+                      </text>
+                </svg>
+            </article>
         </section>
     </body>
     <script>
