@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+<div id="result">
+
+</div>
+
+
+<script>
+class CalculRemise {
+        constructor(prixTTCAvant, TauxRemise, prixTTCApres) {
+            console.log("calcul remise")
+            this.prixTTCAvant = prixTTCAvant;
+            this.tauxRemise = TauxRemise;
+            this.prixTTCApres = prixTTCApres;
+        }
+
+}
+if (typeof(Storage) !== "undefined") {
+  // Code for localStorage/sessionStorage.
+  console.log("Local storage ok")
+  // Store
+  var item = {"prix_ttc":100, "remise":10};
+  var stringifieditem = JSON.stringify(item);
+  localStorage.setItem("calcul_remise_001", stringifieditem);
+  item = {"prix_ttc":200, "remise":20};
+  stringifieditem = JSON.stringify(item);
+  localStorage.setItem("calcul_remise_002", stringifieditem);
+
+  localStorage.setItem("nom", "Henry Lemire");
+
+  // Retrieve
+  var storage = "";
+  var key = "";
+  var json = "";
+  const calcul_remise_list = [];
+  for (var i = 0; i < localStorage.length; i++) {
+       key = localStorage.key(i);
+       if (key.match(/calcul_remise_*/) != null) {
+           json = localStorage.getItem(key)
+           jsonParsed = JSON.parse(json);
+           calcul_remise_list.push(new CalculRemise(jsonParsed.prix_ttc, jsonParsed.remise , 5 )) ;
+       }
+  }
+  var listText = "<table><thead><tr><th>Prix TTC avant</th><th>%Remise</th><th>prix TTC après </th></tr></thead><tbody>";
+  for  (var j = 0; j < calcul_remise_list.length; j++) {
+        listText = listText + "<tr><td>" + calcul_remise_list[j].prixTTCAvant + "</td><td></td><td></td>"
+  }
+  listText = listText + "</tbody></table>"
+
+  document.getElementById("result").innerHTML = listText;
+
+} else {
+  // Sorry! No Web Storage support..
+   console.log("Votre navigateur web ne supporte pas la fonctionnalité de stockage de données")
+}
+
+</script>
+</html>
