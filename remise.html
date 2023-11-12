@@ -8,10 +8,11 @@
     </head>
     <body  >
         <header>
-            <h1>Mon p'tit calculateur</h1>
+            <h1>  <a href="index.html">Mon p'tit calculateur</a></h1>
+
         </header>
         <section class="container" >
-             <a class="button" href="index.html">Sommaire</a>
+
             <form id="calculateur_remise">
                 <h2>Calculateur de Remise</h2>
                 <div >
@@ -29,10 +30,10 @@
                  <div class="pied_de_section" >   
                         <input type="button" id="calculer_remise" class="button" value="Calculer">
                         <span id="prixTTCApresRemise"> Cliquer sur Calculer pour obtenir le prix TTC après remise </span>
+                        <a href="#" class="display_aide  button" onclick="openPopupAide()">Aide</a>
                  </div>
             </form>
-
-            <article>
+            <article id="popup_aide">
                 La remise a pour formule :
                 montant TTC avant remise - [ ( montant TTC avant remise X %remise ) /100 ]
                 <br>
@@ -99,6 +100,10 @@
     </body>
     <script>
 
+        function openPopupAide() {
+              var popup = document.getElementById("popup_aide");
+              popup.classList.toggle("display");
+        }
         const button = document.querySelector('#calculer_remise');
 
         button.addEventListener('click', event => {
@@ -126,7 +131,6 @@
                 }
 
                 let resultat = prixTTCAvantRemiseSanitized*(1-(pourcentageRemiseSanitized/100))
-                               
                 return  resultat;
         
             }
