@@ -5,9 +5,11 @@
 Ceci est un projet pour mes ami.es de LinkedIn et aussi pour moi.
 Il est en lien avec l'histoire fictive de la société DedelMetallo. 
 
-DedelMetallo fabrique des cadres de triporteur. 
+[DedelMetallo](https://www.linkedin.com/feed/update/urn:li:activity:7107486291570610176/) fabrique des cadres de triporteur. 
 
 En ce moment, ils essaient de s'organiser.
+
+Pour les suivre, c'est par [ici](https://www.linkedin.com/feed/update/urn:li:activity:7107486291570610176/). 
 
 J'aimerais leur mettre à disposition une série d'outils (par exemple
 calculateur de remise, de tva etc...), pour donner à voir une partie de mon
