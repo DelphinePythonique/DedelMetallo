@@ -1,10 +1,15 @@
-# Mon p'tit calculateur
+# DedelMetallo
 
 [Auteur: Delphine Lemire](https://www.linkedin.com/in/delphine-lemire/)
 
-Ceci est un projet pour mes ami.es de LinkedIn et aussi pour moi. 
+Ceci est un projet pour mes ami.es de LinkedIn et aussi pour moi.
+Il est en lien avec l'histoire fictive de la société DedelMetallo. 
 
-J'aimerais mettre à disposition une série d'outils (par exemple
+DedelMetallo fabrique des cadres de triporteur. 
+
+En ce moment, ils essaient de s'organiser.
+
+J'aimerais leur mettre à disposition une série d'outils (par exemple
 calculateur de remise, de tva etc...), pour donner à voir une partie de mon
 savoir faire et ce qu'il est possible de faire en terme 
 d'application web actuelle. 
