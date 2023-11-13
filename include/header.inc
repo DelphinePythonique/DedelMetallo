@@ -1,4 +1,3 @@
 <nav>
-    <h1>Mon p'tit calculateur</h1>
-
+   <h1><a class="button" href="index.html">Mon p'tit calculateur</a></h1>
 </nav>

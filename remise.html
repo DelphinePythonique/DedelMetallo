@@ -6,12 +6,11 @@
         <title>Mon p'tit calculateur</title>
         <link href="assets/css/index.css" rel="stylesheet">
     </head>
-    <body  >
-        <header>
-            <h1>Mon p'tit calculateur</h1>
-        </header>
+    <body>
+        <!-- header est actualisé via du javascript présent dans base.js-->
+        <header></header>
         <section class="container" >
-             <a class="button" href="index.html">Sommaire</a>
+
             <form id="calculateur_remise">
                 <h2>Calculateur de Remise</h2>
                 <div >
@@ -19,14 +18,14 @@
                     <input type="text" id="prix_ttc_avant_remise" name="prix_ttc_avant_remise">
                     <span >(Saisir le prix de vente avant remise)</span>
                 </div>
-            
+
                 <div >
                     <label for="pourcentage_remise">% remise</label>
                     <input type="text" id="pourcentage_remise" name="pourcentage_remise" >
                     <span  >(Saisir le pourcentage de remise)</span>
                 </div>
                  <hr />
-                 <div class="pied_de_section" >   
+                 <div class="pied_de_section" >
                         <input type="button" id="calculer_remise" class="button" value="Calculer">
                         <span id="prixTTCApresRemise"> Cliquer sur Calculer pour obtenir le prix TTC après remise </span>
                  </div>
@@ -96,7 +95,9 @@
                 </svg>
             </article>
         </section>
+             <!-- footer est actualisé via du javascript présent dans base.js-->
+        <footer></footer>
     </body>
-<script src="assets/js/remise.js"></script>
-
+    <script src="assets/js/base.js"></script>
+    <script src="assets/js/remise.js"></script>
 </html>
