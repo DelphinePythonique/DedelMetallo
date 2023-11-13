@@ -1,3 +1,8 @@
 <nav>
-   <h1><a class="button" href="index.html">DedelMetallo</a></h1>
+   <ul class="horizontal" >
+      <li> <a class="active" href="index.html">DedelMetallo</a></li>
+      <li> <a  href="remise.html">Tools</a></li>
+
+   </ul>
+
 </nav>
