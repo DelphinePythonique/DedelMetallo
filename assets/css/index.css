@@ -12,7 +12,7 @@ footer{
 
 
 nav {
-    display: block;
+    display: flex;
 }
 
 ul.horizontal {
@@ -103,6 +103,11 @@ form > div{
     align-items:center;
 }
 @media (max-width: 600px) {
+    nav {
+    flex-direction: column;
+}
+
+
     form > div{
     display: flex;
     flex-direction: column;
@@ -118,6 +123,7 @@ form > div{
         display: block;
 
         }
+
  }
 
 #image_dedelmetallo{
